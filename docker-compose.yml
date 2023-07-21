@@ -1,0 +1,25 @@
+version: "3"
+services:
+  gp20a051_cuda-11-4:
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        - http_tmp=$http_proxy
+        - https_tmp=$https_proxy
+    volumes:
+      - ./VITS:/VITS
+    working_dir: /VITS
+    command: /bin/bash
+    env_file:
+      - proxy.env
+    tty: true
+    stop_signal: SIGINT
+    deploy:
+      resources:
+        #limits:
+        #  memory: 24G
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    shm_size: 12GB
