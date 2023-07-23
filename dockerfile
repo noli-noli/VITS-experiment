@@ -10,9 +10,9 @@ ENV https_proxy=$https_tmp
 ENV TZ=Asia/Tokyo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt update --fix-missing
+RUN apt update --fix-missing && apt install -y python3 python3-pip cmake
 
 
 #requirements.txtの内容をインストールする
-COPY VITS/requirements.txt /tmp
-RUN pip3 install -r /tmp/requirements.txt
+#COPY VITS/requirements.txt /tmp
+#RUN pip3 install -r /tmp/requirements.txt
