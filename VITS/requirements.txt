@@ -1,4 +1,3 @@
-Cython
 librosa
 matplotlib
 numba
@@ -9,3 +8,8 @@ scikit-learn
 scipy
 six
 SoundFile
+
+##使用するモジュールの追加
+torch
+torchvision
+torchaudio
